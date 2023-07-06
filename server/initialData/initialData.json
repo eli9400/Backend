@@ -1,0 +1,129 @@
+{
+  "cards": [
+    {
+      "title": "first card",
+      "subtitle": "first card subtitle",
+      "description": "first card description",
+      "phone": "050-0000000",
+      "email": "first@gmail.com",
+      "web": "",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "nehmad meod",
+        "houseNumber": "5",
+        "zip": ""
+      }
+    },
+    {
+      "title": "last card",
+      "subtitle": "last card subtitle",
+      "description": "last card description",
+      "phone": "050-0000000",
+      "email": "last@gmail.com",
+      "web": "",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "nehmad meod",
+        "houseNumber": "5",
+        "zip": ""
+      }
+    },
+    {
+      "title": "Third card",
+      "subtitle": "Third card subtitle",
+      "description": "Third card description",
+      "phone": "050-0000000",
+      "email": "Third@gmail.com",
+      "web": "",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "nehmad meod",
+        "houseNumber": "5",
+        "zip": ""
+      }
+    }
+  ],
+  "users": [
+    {
+      "name": {
+        "first": "User",
+        "middle": "",
+        "last": "cohen"
+      },
+      "image": {
+        "alt": "bla"
+      },
+      "phone": "0584797758",
+      "email": "user@gmail.com",
+      "password": "Aa1234!",
+      "address": {
+        "country": "usa",
+        "city": "nue york",
+        "street": "sumsum",
+        "houseNumber": 1,
+        "zip": 9400
+      }
+    },
+    {
+      "name": {
+        "first": "bizUser",
+        "middle": "",
+        "last": "cohen"
+      },
+      "image": {
+        "alt": "bla"
+      },
+      "phone": "0584797758",
+      "email": "bizuser@gmail.com",
+      "password": "Aa12345!",
+      "address": {
+        "country": "usa",
+        "city": "nue york",
+        "street": "sumsum",
+        "houseNumber": 1,
+        "zip": 9400
+      },
+      "isBusiness": true
+    },
+    {
+      "name": {
+        "first": "admin",
+        "middle": "",
+        "last": "admin"
+      },
+      "image": {
+        "alt": "bla"
+      },
+      "phone": "0584797758",
+      "email": "admin@gmail.com",
+      "password": "Aa12345!",
+      "address": {
+        "country": "usa",
+        "city": "nue york",
+        "street": "sumsum",
+        "houseNumber": 1,
+        "zip": 9400
+      },
+      "isBusiness": true,
+      "isAdmin": true
+    }
+  ]
+}
