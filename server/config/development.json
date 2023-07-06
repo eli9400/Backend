@@ -1,9 +1,0 @@
-{
-  "NODE_ENV": "development",
-  "PORT": 8181,
-  "TOKEN_GENERATOR": "jwt",
-  "DB_NAME": "eli92402",
-  "DB_PASSWORD": "Eli9400457",
-  "LOGGER": "morgan",
-  "DB": "MONGODB"
-}
