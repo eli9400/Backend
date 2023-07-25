@@ -4,8 +4,8 @@
   "main": "server.js",
   "scripts": {
     "test": "node test",
-    "start": "set NODE_ENV=production&& node .",
-    "dev": "set NODE_ENV=development&& nodemon ."
+    "start": "set NODE_ENV=development&& node .",
+    "dev": "set NODE_ENV=production&& nodemon ."
   },
   "author": "Eli Blechman",
   "license": "ISC",

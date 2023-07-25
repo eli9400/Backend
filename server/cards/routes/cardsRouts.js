@@ -1,5 +1,4 @@
 const express = require("express");
-const { handleError } = require("../../utils/errorHandler");
 const {
   getCards,
   getCard,

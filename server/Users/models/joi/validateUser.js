@@ -63,7 +63,7 @@ const validateUser = (user) => {
     isAdmin: joi.boolean().allow(""),
   });
   const obj = schema.validate(user);
-  console.log(user);
+
   return schema.validate(user);
 };
 

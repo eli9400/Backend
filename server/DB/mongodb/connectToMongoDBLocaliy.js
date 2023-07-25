@@ -9,10 +9,12 @@ if (NODE_ENV === "production") {
   mongoose
     .connect("mongodb://127.0.0.1:27017/bcard_eli_blechman")
     .then(() => {
-      console.log(chalk.magentaBright("connected to mongo"));
+      console.log(chalk.magentaBright("connected to MongoDb Locally!"));
     })
     .catch((error) => {
-      console.log(chalk.redBright(`could not connect to mongo :${error}`));
+      console.log(
+        chalk.redBright(`could not connect to mongo Locally! :${error}`)
+      );
     });
 } else {
   mongoose

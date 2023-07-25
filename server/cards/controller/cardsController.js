@@ -42,10 +42,15 @@ const getMyCards = async (req, res) => {
 const createCard = async (req, res) => {
   try {
     const card = req.body;
-    const { _id } = req.user;
+    const { _id, isBusiness } = req.user;
+    if (!isBusiness)
+      throw new Error(
+        "to create a new card the user must bi a business status"
+      );
 
     const { error } = validateCard(card);
     if (error) handleError(req, 400, `joi Error: ${error.message}`);
+    console.log(_id);
     const normalizedCardFromUser = await normalizeCard(card, _id);
     console.log(normalizedCardFromUser);
     const newCard = new Card(normalizedCardFromUser);

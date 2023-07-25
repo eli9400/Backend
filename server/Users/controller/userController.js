@@ -9,7 +9,7 @@ const User = require("../models/mongoose/User");
 const register = async (req, res) => {
   try {
     const user = req.body;
-    console.log(user);
+
     const { error } = validateUser(user);
     if (error)
       return handleError(res, 400, `joi Error: ${error.details[0].message}`);
@@ -21,33 +21,7 @@ const register = async (req, res) => {
     handleError(res, 500, `mongo error: ${error.message}`);
   }
 };
-/* const login = async (req, res) => {
-  try {
-    const user = req.body;
-    const { email } = user;
-    const { error } = validateLogin(user);
-    if (error)
-      return handleError(res, 400, `joi Error: ${error.details[0].message}`);
 
-    const userInDB = await User.findOne({ email });
-    if (!userInDB) {
-      throw new Error("Authentication Error: invalid password or email");
-    }
-
-    const isPasswordValid = comparePassword(user.password, userInDB.password);
-    if (!isPasswordValid) {
-      error.status = 403;
-      throw new Error("Authentication Error: invalid password or email");
-    }
-
-    const token = generateAuthToken(userInDB);
-    res.send(token);
-  } catch (error) {
-    const isAuthError =
-      error.message === "Authentication Error: invalid password or email";
-    return handleError(res, error.status, `mongo error: ${error.message}`);
-  }
-}; */
 const login = async (req, res) => {
   try {
     const user = req.body;
@@ -122,11 +96,9 @@ const editUser = async (req, res) => {
       new: true,
     });
     if (!updateUser) throw new Error("user id not found");
-    /* res.status(201).send(updateUser); */
-    const { isAdmin, isBusiness, _id } = updateUser;
-    const user = generateAuthToken({ _id, isAdmin, isBusiness });
+    /*  console.log(updateUser); */
 
-    res.status(201).send(user);
+    res.status(201).send(updateUser);
   } catch (error) {
     handleError(res, 403, error.message);
   }
@@ -136,16 +108,15 @@ const changeStatusBiz = async (req, res) => {
   try {
     const user = req.user;
     const { id } = req.params;
-    console.log(id);
+
     if (!user.isAdmin)
       throw new Error("Only an authorized user may perform this action");
     const userFromDB = await User.findById(id);
     if (!userFromDB) throw new Error("User not found");
 
-    // Toggle the isBusiness status
     userFromDB.isBusiness = !userFromDB.isBusiness;
 
-    await userFromDB.save(); // Save the updated user
+    await userFromDB.save();
 
     res.status(201).send(userFromDB);
   } catch (error) {
@@ -155,9 +126,15 @@ const changeStatusBiz = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   try {
-    const { isAdmin } = req.user;
-    if (!isAdmin) throw Error("Only an admin user may delete a user");
-    const { id } = req.params;
+    const user = req.user;
+    const id = req.params.id.trim();
+
+    if (!user.isAdmin && user._id !== id) {
+      console.log(user._id !== id);
+      throw Error("Only an admin user or register user may delete a user");
+    } else {
+      console.log("Condition NOT triggered");
+    }
     const userDelete = await User.findByIdAndDelete(id);
     if (!userDelete) throw Error("user id not found");
     res.status(201).send(userDelete);
